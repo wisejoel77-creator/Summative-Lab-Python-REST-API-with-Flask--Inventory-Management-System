@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask,requests
 app = Flask(__name__)
 
 inventory = []
@@ -16,7 +16,7 @@ def get_item(item_id):
 
 @app.route('/removeitem', methods=['DELETE'])
 def remove_inventory_item():
-    return 'Item removed from inventory!'
+    return 'Item removed from inventory! no content', 204
 
 @app.route('/edititem', methods=['PATCH'])  
 def update_inventory_item():
@@ -24,7 +24,7 @@ def update_inventory_item():
 
 @app.route('/additem', methods=['POST'])
 def add_inventory_item():
-    return 'Item added to inventory!'
+    return 'Item added to inventory!',201
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
