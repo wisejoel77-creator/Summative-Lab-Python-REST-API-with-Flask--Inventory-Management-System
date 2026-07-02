@@ -5,7 +5,14 @@ inventory = []
 
 @app.route('/viewitem', methods=['GET'])
 def view_inventory_item():
-    return 'Item viewed in inventory!'
+    return inventory
+
+@app.route("/inventory/<int:item_id>")
+def get_item(item_id):
+    if 0 <= item_id < len(inventory):
+        return inventory[item_id]
+    else:
+        return "Item not found", 404
 
 @app.route('/removeitem', methods=['DELETE'])
 def remove_inventory_item():
