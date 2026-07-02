@@ -1,7 +1,9 @@
 from flask import Flask,requests
 app = Flask(__name__)
 
-inventory = []
+inventory = [{"id":1,"name":"Milk","barcode":"737628064502","quantity":15,"price":3.50},
+            {"id":2,"name":"Bread","barcode":"123456789","quantity":8,"price":2.20}
+]
 
 @app.route('/viewitem', methods=['GET'])
 def view_inventory_item():
